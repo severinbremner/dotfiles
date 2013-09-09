@@ -1,31 +1,34 @@
 [general]
-ui = ttyui
+ui = TTYUI
 accounts = Gmail
+maxsyncaccounts = 2
 metadata = ~/.offlineimap
 pythonfile = ~/.offlineimap.py
+socktimeout = 90
 fsync = False
 
-#[mbnames]
-#enabled = yes
-#filename = ~/.mutt/muttrc.mailboxes
-#header = "mailboxes "
-#peritem = "+%(accountname)s/%(foldername)s"
-##sep = /
-##sep = " "
-#sep = .
-#footer = "\n"
+[mbnames]
+enabled = yes
+filename = ~/.mutt/muttrc.mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
 
 [Account Gmail]
 localrepository = Gmail-Local
 remoterepository = Gmail-Remote
 status_backend = sqlite
-autorefresh = 15
+autorefresh = 10
 quick = 5
-#postsynchook = notmuch new
+postsynchook = notmuch new
 
 [Repository Gmail-Local]
 type = Maildir
 localfolders = ~/.offlineimap/Gmail
+sep = /
+restoreatime = no
+
 # map folders
 nametrans = lambda folder: {'Drafts':  '[Google Mail]/Drafts',
                             'Sent':    '[Google Mail]/Sent Mail',
@@ -36,15 +39,20 @@ nametrans = lambda folder: {'Drafts':  '[Google Mail]/Drafts',
 
 [Repository Gmail-Remote]
 type = Gmail
-maxconnections = 1
-cert_fingerprint = b0ba392bba326e6feb1add4d04fa0fb86cd173fa
-#sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+#cert_fingerprint = b0ba392bba326e6feb1add4d04fa0fb86cd173fa
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteuser = fergus.bremner@gmail.com
+#remotepass = [gpg]
 remotepasseval = mailpasswd("Gmail")
+#remotepasseval = keyring.get_password("offlineimap","fergus.bremner@gmail.com")
 realdelete = no
-keepalive = 60
+#maxconnections = 2
 holdconnectionopen = yes
+keepalive = 60
 idlefolders = ['INBOX']
+trashfolder = [Google Mail]/Trash
+spamfolder = [Google Mail]/Spam
+
 # remap folders
 nametrans = lambda folder: {'[Google Mail]/Drafts':    'Drafts',
                             '[Google Mail]/Sent Mail': 'Sent',
@@ -61,7 +69,5 @@ folderfilter = lambda folder: folder not in ['[Google Mail]/Important',
                                              'Svaha',
                                              ]
 
-#trashfolder = [Google Mail]/Trash
-#spamfolder = [Google Mail]/Spam
 
 # vim:ft=conf
