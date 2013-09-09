@@ -1,0 +1,22 @@
+dotfiles
+========
+
+Config files from ~/
+ln -s ~/
+
+tmux
+====
+
+Fergus' tmux magic
+
+Usage:
+cd dotfiles
+ln -s tmux.conf ~/.tmuf.conf
+
+If you're coming from screen and miss:
+  screen -DRR
+use:
+  tmux -2 a -d || tmux -2 new
+(-2 forces 256 colors)
+
+" vim:ft=mkd

@@ -1,0 +1,55 @@
+# General
+*.bak
+*.lock
+*.orig
+*.sw[op]
+*.tmproj
+*~
+.svn
+cache/*
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Media etc.
+media/*
+docs/*
+documents/*
+
+# OS X
+.DS_Store
+profile
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Xcode 
+*.mode1v3
+*.mode2v3
+*.pbxuser
+*.perspective
+*.perspectivev3
+*~.nib
+build/*
+
+#ignore private workspace stuff added by Xcode4
+xcuserdata
+
+#java specific
+*.class
+ 
+#netbeans ignore personal stuff
+nbproject/private/
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+

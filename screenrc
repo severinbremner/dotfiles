@@ -1,0 +1,60 @@
+# Set escape key
+# escape ^aa  # default
+escape ``
+
+# Set default encoding to UTF-8
+encoding UTF-8
+defencoding UTF-8
+defutf8 on
+
+# Bind F11 and F12 (NOT F1 and F2) to previous and next screen window
+#bindkey -k F1 prev
+#bindkey -k F2 next
+
+startup_message off
+vbell off
+#autodetach on
+#altscreen on
+
+activity "%C -> %n%f %t activity!"
+bell "%C -> %n%f %t bell!"
+
+# Window list at the bottom.
+hardstatus alwayslastline
+#hardstatus string "%-w%{= BW}%50>%n %t%{-}%+w%<"
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%3= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+#hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %d/%m/%y %c ]%{W}'
+#hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[%{B}%Y-%m-%d %{W}%c %{g}]'
+hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][ %{B}%Y-%m-%d %{W}%c %{g}]'
+
+
+# Don't block command output if the terminal stops responding
+nonblock on
+defnonblock on
+
+# Startup screens
+screen -t stuff 2 bash
+#screen -t mail 2 mutt
+screen -t music 1 ncmpcpp
+screen -t home 0 bash
+
+shelltitle "$ |bash"
+
+#term screen-256color
+ 
+# VIM - editor
+bind v # unbind
+bind v screen -t vim 9 vim
+
+# Security
+echo -e "\nidle 60 lockscreen >> ~/.screenrc"
+ 
+# Make the output buffer large for (fast) xterms.
+termcapinfo xterm* OL=10000
+#  termcapinfo xterm* OL=100
+
+# tell screen that xterm can switch to dark background and has function keys.
+termcapinfo xterm 'VR=\E[?5h:VN=\E[?5l'
+termcapinfo xterm 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+termcapinfo xterm 'kh=\EOH:kI=\E[2~:kD=\E[3~:kH=\EOF:kP=\E[5~:kN=\E[6~'
+

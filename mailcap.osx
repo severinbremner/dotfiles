@@ -1,0 +1,33 @@
+# mailcap file for an OS X system
+
+# MS Excel
+# this will use the default xls spreadsheet handler from open
+application/x-msexcel; ~/.mutt/scripts/view_attachment.sh %s
+application/ms-exc; ~/.mutt/scripts/view_attachment.sh %s
+application/excel; ~/.mutt/scripts/view_attachment.sh %s
+application/msexcel; ~/.mutt/scripts/view_attachment.sh %s
+application/vnd.ms-exc; ~/.mutt/scripts/view_attachment.sh %s
+application/vnd.ms-excel; ~/.mutt/scripts/view_attachment.sh %s
+
+# MS Word
+# use TextEdit to open .doc files as it's more light-weight
+application/msword; ~/.mutt/scripts/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+
+# Images
+image/jpg; ~/.mutt/scripts/view_attachment.sh %s jpg
+image/jpeg; ~/.mutt/scripts/view_attachment.sh %s jpg
+image/pjpeg; ~/.mutt/scripts/view_attachment.sh %s jpg
+image/png; ~/.mutt/scripts/view_attachment.sh %s png
+image/gif; ~/.mutt/scripts/view_attachment.sh %s gif
+
+# PDF
+application/pdf; /Users/fergus/.mutt/scripts/view_attachment.sh %s pdf
+
+# HTML
+text/html; w3m -I %{charset} -T text/html; copiousoutput
+#text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
+text/html; links %s; nametemplate=%s.html
+text/html; links -dump %s; nametemplate=%s.html; copiousoutput
+
+# Unidentified.
+application/octet-stream; ~/.mutt/scripts/view_attachment.sh %s "-" 
