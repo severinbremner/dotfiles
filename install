@@ -1,0 +1,18 @@
+#!/bin/bash
+
+CWD=$(pwd) 
+backup=~/dotfiles.bak             # old dotfiles backup directory
+files="abcde.conf gitconfig gitignore goobookrc tidy.com tmux.conf"    # list of files/folders to symlink in homedir
+
+# create dotfiles_old in homedir
+echo "Creating $backup for backup of any existing dotfiles in ~"
+mkdir -p $backup
+echo "...done"
+
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+for file in $files; do
+    echo "Moving existing dotfiles from ~ to $backup"
+    mv ~/.$file ~/dotfiles_old/
+    echo "Creating symlink to $file in home directory."
+    ln -s $CWD/$file $HOME/.$file
+done
