@@ -2,6 +2,7 @@
 *.bak
 *.lock
 *.orig
+*.pyc
 *.sw[op]
 *.tmproj
 *~
@@ -19,11 +20,15 @@ docs/*
 documents/*
 
 # OS X
-.DS_Store
+Desktop.ini
 profile
 ehthumbs.db
 Icon?
 Thumbs.db
+
+.DS_Store
+.Spotlight-V100
+.Trashes
 
 # Xcode 
 *.mode1v3
