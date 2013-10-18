@@ -2,16 +2,13 @@ dotfiles
 ========
 
 Config files from ~/
-ln -s ~/
 
-tmux
-====
+## Installation
 
-Fergus' tmux magic
-
-Usage:
 cd dotfiles
-ln -s tmux.conf ~/.tmuf.conf
+./install
+
+This script will backup your old dotfiles to ~/dotfiles.bak and ln -s the new.
 
 If you're coming from screen and miss:
   screen -DRR
