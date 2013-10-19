@@ -2,8 +2,8 @@
 
 CWD=$(pwd) 
 DATE=$(date +"%Y%m%d%H%M")
-backup=dotfiles.bak
-dotfiles="abcde.conf gitconfig gitignore goobookrc screenrc tidy.com tmux.conf"
+backup=dotfiles-$DATE
+dotfiles="abcde.conf gitconfig gitignore goobookrc screenrc tidy.conf tmux.conf"
 configs="newsbeuter ncmpcpp"
 
 # create backup dir in home dir
@@ -11,12 +11,12 @@ echo "Creating $backup for backup of any existing files in ~"
 mkdir -p $HOME/$backup
 echo "...done"
 
-# move any existing dotdotfiles in homedir to backup directory, then create dotfiles 
+# move any existing dotfiles in ~ to backup directory, then create symlinks 
 for dotfile in $dotfiles; do
-    echo "Moving existing files from ~ to $backup"
-    mv $HOME/.$dotfile $HOME/$backup/
-    echo "Creating dotfile to $dotfile in home directory."
-    ln -s $CWD/$dotfile $HOME/.$dotfile
+  echo "Moving existing .$dotfile from ~ to ~/$backup"
+  mv $HOME/.$dotfile $HOME/$backup/ > /dev/null 2>&1
+  echo "Creating symlink to $dotfile in ~"
+  ln -s $CWD/$dotfile $HOME/.$dotfile
 done
 
 # one for mailcap for OS X, another for Linux (server)
