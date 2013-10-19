@@ -1,20 +1,43 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CWD=$(pwd) 
-backup=~/dotfiles.bak
-files="abcde.conf gitconfig gitignore goobookrc tidy.com tmux.conf"
+DATE=$(date +"%Y%m%d%H%M")
+backup=dotfiles.bak
+dotfiles="abcde.conf gitconfig gitignore goobookrc screenrc tidy.com tmux.conf"
+configs="newsbeuter ncmpcpp"
 
 # create backup dir in home dir
-echo "Creating $backup for backup of any existing dotfiles in ~"
-mkdir -p $backup
+echo "Creating $backup for backup of any existing files in ~"
+mkdir -p $HOME/$backup
 echo "...done"
 
-# move any existing dotfiles in homedir to backup directory, then create symlinks 
-for file in $files; do
-    echo "Moving existing dotfiles from ~ to $backup"
-    mv $HOME/.$file $HOME/$backup
-    echo "Creating symlink to $file in home directory."
-    ln -s $CWD/$file $HOME/.$file
+# move any existing dotdotfiles in homedir to backup directory, then create dotfiles 
+for dotfile in $dotfiles; do
+    echo "Moving existing files from ~ to $backup"
+    mv $HOME/.$dotfile $HOME/$backup/
+    echo "Creating dotfile to $dotfile in home directory."
+    ln -s $CWD/$dotfile $HOME/.$dotfile
 done
 
-printf "\nAll done!"
+# one for mailcap for OS X, another for Linux (server)
+if [ -f $HOME/.mailcap ]; then
+    mv $HOME/.mailcap $HOME/$backup/
+fi
+if [[ $(uname) == 'Darwin' ]]; then
+  ln -s $CWD/mailcap.osx $HOME/.mailcap
+else
+  ln -s $CWD/mailcap $HOME/.mailcap
+fi
+
+# config files
+for config in $configs; do
+  if [ -d $HOME/.$config ]; then
+    mv $HOME/.$config/config $HOME/.$config/config-$DATE > /dev/null 2>&1
+    ln -s $CWD/$config.config $HOME/.$config/config
+  else
+    mkdir $HOME/.$config
+    ln -s $CWD/$config.config $HOME/.$config/config
+  fi
+done
+
+printf "All done!\n"
