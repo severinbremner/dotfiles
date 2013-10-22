@@ -13,19 +13,30 @@ echo "...done"
 
 # move any existing dotfiles in ~ to backup directory, then create symlinks 
 for dotfile in $dotfiles; do
-  echo "Moving existing .$dotfile from ~ to ~/$backup"
-  mv $HOME/.$dotfile $HOME/$backup/ > /dev/null 2>&1
+  if [ -h $HOME/.$dotfile ] ; then
+    echo "Removing stale symlink ~/.$dotfile"
+    rm $HOME/.$dotfile
+  else
+    echo "Moving existing .$dotfile from ~ to ~/$backup"
+    mv $HOME/.$dotfile $HOME/$backup/ > /dev/null 2>&1
+  fi
+  # make new symlinks
   echo "Creating symlink to $dotfile in ~"
   ln -s $CWD/$dotfile $HOME/.$dotfile
 done
 
 # one for mailcap for OS X, another for Linux (server)
-if [ -f $HOME/.mailcap ]; then
-    mv $HOME/.mailcap $HOME/$backup/
+if [ -h $HOME/.mailcap ]; then
+  echo "Removing stale symlink ~/.mailcap"
+  rm $HOME/.mailcap
+elif [ -f $HOME/.mailcap ]; then
+  mv $HOME/.mailcap $HOME/$backup/
 fi
 if [[ $(uname) == 'Darwin' ]]; then
+  echo "Creating symlink to mailcap.osx in ~"
   ln -s $CWD/mailcap.osx $HOME/.mailcap
 else
+  echo "Creating symlink to mailcap in ~"
   ln -s $CWD/mailcap $HOME/.mailcap
 fi
 
