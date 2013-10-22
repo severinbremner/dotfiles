@@ -43,12 +43,23 @@ fi
 # config files
 for config in $configs; do
   if [ -d $HOME/.$config ]; then
+    echo "Backing up ~/.$config/config as ~/.$config/config-$DATE"
     mv $HOME/.$config/config $HOME/.$config/config-$DATE > /dev/null 2>&1
+    echo "Creating symlink to $config.config in ~/.$config/"
     ln -s $CWD/$config.config $HOME/.$config/config
   else
     mkdir $HOME/.$config
+    echo "Creating symlink to $config.config in ~/.$config/"
     ln -s $CWD/$config.config $HOME/.$config/config
   fi
 done
+
+# cleanup
+if [ "$(ls -A $HOME/$backup)" ]; then
+  echo "Your old dotfiles can be found in ~/$backup"
+else
+  echo "Removing ~/$backup because it's empty"
+  rm -rf $HOME/$backup
+fi
 
 printf "All done!\n"
