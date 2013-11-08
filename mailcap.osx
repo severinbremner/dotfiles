@@ -13,12 +13,23 @@ application/vnd.ms-excel; ~/.mutt/scripts/view_attachment.sh %s
 # use TextEdit to open .doc files as it's more light-weight
 application/msword; ~/.mutt/scripts/view_attachment.sh %s "-" '/Applications/TextEdit.app'
 
+# Audio
+video/flac; ~/.mutt/scripts/view_attachment.sh %s flac
+video/ogg; ~/.mutt/scripts/view_attachment.sh %s ogg
+video/mp3; ~/.mutt/scripts/view_attachment.sh %s mp3
+
 # Images
 image/jpg; ~/.mutt/scripts/view_attachment.sh %s jpg
 image/jpeg; ~/.mutt/scripts/view_attachment.sh %s jpg
 image/pjpeg; ~/.mutt/scripts/view_attachment.sh %s jpg
 image/png; ~/.mutt/scripts/view_attachment.sh %s png
 image/gif; ~/.mutt/scripts/view_attachment.sh %s gif
+
+# Video
+video/avi; ~/.mutt/scripts/view_attachment.sh %s avi
+video/m4v; ~/.mutt/scripts/view_attachment.sh %s m4v
+video/mp4; ~/.mutt/scripts/view_attachment.sh %s mp4
+video/swf; ~/.mutt/scripts/view_attachment.sh %s swf
 
 # PDF
 application/pdf; /Users/fergus/.mutt/scripts/view_attachment.sh %s pdf
