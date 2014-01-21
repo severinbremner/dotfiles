@@ -1,12 +1,11 @@
-# General
+syntax: glob
+
 *.bak
 *.lock
 *.orig
 *.pyc
 *.sw[op]
 *~
-.svn
-cache/*
 
 # Logs and databases
 *.log
