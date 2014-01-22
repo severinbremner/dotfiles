@@ -15,4 +15,9 @@
 # Media files that should not be modified
 *.gif binary
 *.jpg binary
+*.m4v binary
+*.mp3 binary
+*.mp4 binary
+*.ogg binary
 *.png binary
+*.swf binary
