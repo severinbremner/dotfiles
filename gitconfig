@@ -1,6 +1,6 @@
 [user]
-	name = Fergus Bremner
-	email = fergus.bremner@gmail.com
+  name = Fergus Bremner
+  email = fergus.bremner@gmail.com
 
 [alias]
   aa = add --all
@@ -19,7 +19,7 @@
 
 [core]
   editor = vim
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   autocrlf = input
   repositoryformatversion = 0
@@ -28,7 +28,7 @@
   logallrefupdates = true
 
 [merge]
-	tool = vim
+  tool = vim
   log = true
 
 [branch "master"]
@@ -61,10 +61,3 @@
   default = current
 
 # vim:ft=conf
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
