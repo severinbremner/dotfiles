@@ -1,0 +1,18 @@
+# XCode...
+*.pbxproj binary
+
+# General text files
+*CHANGELOG export-ignore
+*COPYRIGHT export-ignore
+*INSTALL export-ignore
+*LICENSE export-ignore
+*README export-ignore
+*README.md export-ignore
+*README.txt export-ignore
+*TODO export-ignore
+*TODO.txt export-ignore
+
+# Media files that should not be modified
+*.gif binary
+*.jpg binary
+*.png binary
