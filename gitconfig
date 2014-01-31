@@ -19,7 +19,7 @@
 
 [core]
   editor = vim
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   autocrlf = input
   repositoryformatversion = 0
@@ -28,7 +28,7 @@
   logallrefupdates = true
 
 [merge]
-	tool = vim
+  tool = vim
   log = true
 
 [branch "master"]

@@ -1,0 +1,12 @@
+[ui]
+  username = Fergus Bremner <fergus.bremner@gmail.com>
+  editor = vim
+  verbose = true
+
+[extensions]
+
+[alias]
+  ci = commit
+  st = status
+  up = update
+  nuke = revert --no-backup --all
