@@ -27,8 +27,14 @@
   bare = false
   logallrefupdates = true
 
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
 [merge]
-  tool = vim
+  tool = vimdiff
   log = true
 
 [branch "master"]
