@@ -27,8 +27,8 @@
   bare = false
   logallrefupdates = true
 
-[diff]
-	tool = vimdiff
+#[diff]
+	#tool = vimdiff
 
 [difftool]
 	prompt = false
