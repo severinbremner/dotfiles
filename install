@@ -54,6 +54,9 @@ for config in $configs; do
   fi
 done
 
+# set permissions
+chmod 0600 $HOME/.msmtprc
+
 # cleanup
 if [ "$(ls -A $HOME/$backup)" ]; then
   echo "Your old dotfiles can be found in ~/$backup"
