@@ -55,6 +55,7 @@ for config in $configs; do
 done
 
 # set permissions
+chmod 0600 $CWD/msmtprc
 chmod 0600 $HOME/.msmtprc
 
 # cleanup
