@@ -2,6 +2,9 @@
   name = Fergus Bremner
   email = fergus.bremner@gmail.com
 
+[push]
+  default = current
+
 [alias]
   aa = add --all
   am = commit --amend
@@ -10,9 +13,13 @@
   ci = commit
   cl = clone --recursive
   co = checkout
+  dc = diff --cached
+  dh = diff HEAD
+  dcheck = diff --check
   lc = log ORIG_HEAD --stat --no-merges
+  lp = log --patch
   news = log -p HEAD@{1}..HEAD@{0}
-  pl = !"git pull; git submodule foreach git pull origin master"
+  pls = !"git pull; git submodule foreach git pull origin master"
   st = status
   sup = submodule update --recursive
   who = shortlog -s
@@ -27,6 +34,8 @@
   bare = false
   logallrefupdates = true
 
+[diff]
+  diff-algorithm = patience
 #[diff]
 	#tool = vimdiff
 
@@ -63,7 +72,4 @@
   changed = green
   untracked = cyan
 
-[push]
-  default = current
-
-# vim:ft=conf
+# vim:ft=gitconf

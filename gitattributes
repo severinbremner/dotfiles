@@ -12,7 +12,7 @@
 *TODO export-ignore
 *TODO.txt export-ignore
 
-# Media files that should not be modified
+# Media files 
 *.gif binary
 *.jpg binary
 *.m4v binary
