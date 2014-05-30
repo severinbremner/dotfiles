@@ -3,7 +3,7 @@
   email = fergus.bremner@gmail.com
 
 [push]
-  default = current
+	default = matching
 
 [alias]
   aa = add --all
