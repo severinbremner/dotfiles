@@ -2,8 +2,8 @@
 # If not given here, email and password is taken from .netrc using
 # machine google.com
 email: fergus.bremner@gmail.com
-#password: [gpg]
-passwordeval: gpg --no-tty -qd ~/.passwd/Gmail.gpg
+password: xsenpananatkdwru
+#passwordeval: gpg --no-tty -qd ~/.passwd/Gmail.gpg
 # The following are optional, defaults are shown
 cache_filename: ~/.goobook/cache
 cache_expiry_hours: 24

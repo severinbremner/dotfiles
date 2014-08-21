@@ -54,6 +54,11 @@ for config in $configs; do
   fi
 done
 
+# goobook cache
+mkdir -p $HOME/.goobook
+chmod 0700 $HOME/.goobook
+touch $HOME/.goobook/cache
+
 # cleanup
 if [ "$(ls -A $HOME/$backup)" ]; then
   echo "Your old dotfiles can be found in ~/$backup"
