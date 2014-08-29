@@ -1,12 +1,12 @@
 [user]
   name = Fergus Bremner
-  email = "(none)"
+  email = fergus.bremner@gmail.com
 
 [init]
-    templatedir = ~/.git/templates
+  templatedir = ~/.git/templates
 
 [push]
-	default = matching
+  default = matching
 
 [alias]
   aa = add --all
@@ -39,6 +39,7 @@
 
 [diff]
   diff-algorithm = patience
+
 #[diff]
 	#tool = vimdiff
 
