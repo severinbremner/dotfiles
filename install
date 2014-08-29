@@ -54,6 +54,9 @@ for config in $configs; do
   fi
 done
 
+# git
+mkdir -p $HOME/.git/templates
+
 # goobook cache
 mkdir -p $HOME/.goobook
 chmod 0700 $HOME/.goobook
