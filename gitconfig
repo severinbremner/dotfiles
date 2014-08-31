@@ -38,17 +38,16 @@
   logallrefupdates = true
 
 [diff]
+  tool = vimdiff
   diff-algorithm = patience
 
-#[diff]
-	#tool = vimdiff
-
 [difftool]
-	prompt = false
+  prompt = false
 
 [merge]
   tool = vimdiff
   log = true
+  conflictstyle = diff3
 
 [branch "master"]
   remote = origin
