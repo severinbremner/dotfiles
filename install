@@ -3,7 +3,7 @@
 CWD=$(pwd) 
 DATE=$(date +"%Y%m%d%H%M")
 backup=dotfiles-$DATE
-dotfiles="abcde.conf gitattributes gitconfig gitignore goobookrc hgignore_global hgrc screenrc tidy.conf tmux.conf"
+dotfiles="abcde.conf gitattributes gitconfig gitignore goobookrc hgignore_global hgrc screenrc tidy.conf tmux.conf rsync-ignore.txt"
 configs="newsbeuter ncmpcpp"
 
 # create backup dir in home dir
@@ -53,6 +53,9 @@ for config in $configs; do
     ln -s $CWD/$config.config $HOME/.$config/config
   fi
 done
+
+# newsbeuter
+mkdir -p $HOME/Documents/Feeds
 
 # git
 mkdir -p $HOME/.git/templates

@@ -1,0 +1,6 @@
+*.bak
+*.lock
+*.pyc
+.DS_Store
+.git*
+.rope*
