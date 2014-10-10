@@ -1,6 +1,9 @@
 *.bak
 *.lock
+*.min.css
+*.min.js
 *.pyc
 .DS_Store
 .git*
 .rope*
+.webassets-cache
