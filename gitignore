@@ -43,6 +43,13 @@ xcuserdata
 
 #java specific
 *.class
+
+# Rope
+.ropeproject
+
+# Django stuff:
+*.log
+*.pot
  
 #netbeans ignore personal stuff
 nbproject/private/
@@ -57,3 +64,5 @@ nbproject/private/
 *.tar
 *.zip
 
+# Translations
+*.mo
