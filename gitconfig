@@ -1,6 +1,6 @@
 [user]
-  name = Fergus Bremner
-  email = "(none)"
+  name = Severin Bremner
+  email = severin.bremner@gmail.com
 
 [init]
   templatedir = ~/.git/templates
